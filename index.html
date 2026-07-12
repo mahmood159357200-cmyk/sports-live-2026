@@ -3,65 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بث مباشر فوراً</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <title>شاشة البث المباشر للمباراة</title>
+    <!-- استدعاء مكتبة المشغل المتقدم لتشغيل روابط السيرفرات المباشرة -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.5/video-js.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #0c0c0c;
-            color: #ffffff;
-            font-family: sans-serif;
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            padding: 20px;
         }
-        .video-box {
-            width: 100%;
-            max-width: 850px;
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            position: relative;
+            padding-top: 56.25%; /* نسبة 16:9 للشاشة */
             background: #000;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        video {
+        .video-js {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            display: block;
-            aspect-ratio: 16 / 9;
-        }
-        h2 {
-            margin-bottom: 15px;
-            font-size: 20px;
+            height: 100%;
         }
     </style>
 </head>
 <body>
 
-    <h2>شاشة البث المباشر للمباراة ⚽</h2>
-
-    <div class="video-box">
-        <video id="video" controls autoplay muted playsinline></video>
+<div class="container">
+    <h1>⚽ شاشة البث المباشر للمباراة</h1>
+    
+    <div class="video-container">
+        <!-- مشغل الفيديو بالرابط الجديد الحقيقي -->
+        <video id="live-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" autoplay muted>
+            <source src="http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/4504" type="application/x-mpegURL">
+            <p class="vjs-no-js">
+                المتصفح الخاص بك لا يدعم تشغيل هذا الفيديو، برجاء تحديث المتصفح.
+            </p>
+        </video>
     </div>
+</div>
 
+<!-- ملفات الجافا سكريبت الخاصة بالمشغل والتأكد من دعم البث الحي -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.5/video.min.js"></script>
 <script>
-    var streamUrl = 'http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/4504';
-    var video = document.getElementById('video');
-
-    if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.loadSource(streamUrl);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function() {
-            video.play();
-        });
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = streamUrl;
-        video.addEventListener('loadedmetadata', function() {
-            video.play();
-        });
-    }
+    var player = videojs('live-video', {
+        fluid: true,
+        liveui: true
+    });
 </script>
 
 </body>
