@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شاشة البث المباشر للمباراة</title>
-    <!-- استدعاء مكتبة المشغل المتقدم لتشغيل روابط السيرفرات المباشرة -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.5/video-js.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #111;
@@ -25,18 +23,19 @@
         }
         .video-container {
             position: relative;
-            padding-top: 56.25%; /* نسبة 16:9 للشاشة */
+            padding-top: 56.25%; /* نسبة 16:9 لضبط أبعاد الشاشة */
             background: #000;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .video-js {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -46,24 +45,13 @@
     <h1>⚽ شاشة البث المباشر للمباراة</h1>
     
     <div class="video-container">
-        <!-- مشغل الفيديو بالرابط الجديد الحقيقي -->
-        <video id="live-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" autoplay muted>
-            <source src="http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/4504" type="application/x-mpegURL">
-            <p class="vjs-no-js">
-                المتصفح الخاص بك لا يدعم تشغيل هذا الفيديو، برجاء تحديث المتصفح.
-            </p>
-        </video>
+        <!-- تحويل رابط السيرفر المباشر إلى iframe -->
+        <iframe src="http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/4504" 
+                allowfullscreen 
+                allow="autoplay; encrypted-media">
+        </iframe>
     </div>
 </div>
-
-<!-- ملفات الجافا سكريبت الخاصة بالمشغل والتأكد من دعم البث الحي -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.5/video.min.js"></script>
-<script>
-    var player = videojs('live-video', {
-        fluid: true,
-        liveui: true
-    });
-</script>
 
 </body>
 </html>
