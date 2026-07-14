@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البث المباشر للمباريات</title>
+    <title>البث المباشر</title>
     <style>
+        /* إزالة الهوامش وجعل الصفحة سوداء بالكامل */
         body, html {
             margin: 0;
             padding: 0;
@@ -13,29 +14,35 @@
             background-color: #000;
             overflow: hidden;
         }
+
+        /* حاوية الفيديو: تأخذ كامل ارتفاع وعرض الشاشة */
         .video-container {
-            position: relative;
             width: 100%;
-            height: 100vh;
+            height: 100vh; /* ملء ارتفاع الشاشة بالكامل */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* ضبط المشغل (iframe) داخل الحاوية */
         .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             border: 0;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
 
 <div class="video-container">
+    <!-- كود المشغل بتاعك مع إضافة تظبيطات بسيطة للأبعاد -->
     <iframe src="https://hjiojhiofgkuyk.jo3.org/embed.php?id=8552800491" 
-            referrerpolicy="no-referrer" 
-            allow="autoplay; encrypted-media" 
-            allowfullscreen="true" 
-            scrolling="no">
+            width="100%" 
+            height="100%" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
     </iframe>
 </div>
 
