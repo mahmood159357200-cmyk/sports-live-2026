@@ -1,57 +1,55 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شاشة البث المباشر للمباراة</title>
+    <title>البث المباشر</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
         body {
-            background-color: #111;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .video-container {
-            position: relative;
-            padding-top: 56.25%; /* نسبة 16:9 لضبط أبعاد الشاشة */
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .player-container {
             width: 100%;
-            height: 100%;
-            border: none;
+            max-width: 800px;
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        video {
+            width: 100%;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>⚽ شاشة البث المباشر للمباراة</h1>
-    
-    <div class="video-container">
-        <!-- تحويل رابط السيرفر المباشر إلى iframe -->
-        <iframe src="http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/4504" 
-                allowfullscreen 
-                allow="autoplay; encrypted-media">
-        </iframe>
-    </div>
+<div class="player-container">
+    <video id="video" controls autoplay playsinline></video>
 </div>
+
+<script>
+    var video = document.getElementById('video');
+    // الرابط الصافي اللي أنت سحبته
+    var videoSrc = 'https://v3.site22.top/broadcast/LFNDTuZLfJbjk13XOQgMFQ/1784055554/1784055293/1/max1.m3u8';
+
+    if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+    }
+</script>
 
 </body>
 </html>
