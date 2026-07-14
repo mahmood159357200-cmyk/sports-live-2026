@@ -3,53 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البث المباشر</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <title>البث المباشر للمباريات</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
             background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        .player-container {
-            width: 100%;
-            max-width: 800px;
-            background: #111;
-            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        video {
+        .video-container {
+            position: relative;
             width: 100%;
-            display: block;
+            height: 100vh;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
 <body>
 
-<div class="player-container">
-    <video id="video" controls autoplay playsinline></video>
+<div class="video-container">
+    <iframe src="https://hjiojhiofgkuyk.jo3.org/embed.php?id=8552800491" allowfullscreen="true" scrolling="no"></iframe>
 </div>
-
-<script>
-    var video = document.getElementById('video');
-    // الرابط الصافي اللي أنت سحبته
-    var videoSrc = 'https://v3.site22.top/broadcast/LFNDTuZLfJbjk13XOQgMFQ/1784055554/1784055293/1/max1.m3u8';
-
-    if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.loadSource(videoSrc);
-        hls.attachMedia(video);
-    }
-    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = videoSrc;
-    }
-</script>
 
 </body>
 </html>
