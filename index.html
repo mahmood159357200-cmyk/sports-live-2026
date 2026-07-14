@@ -1,61 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بث مباشر</title>
-    <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: #000; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* حاوية الفيديو للمحافظة على أبعاد العرض 16:9 للماتش */
-        .video-wrapper {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background-color: #000;
-            position: relative;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* زرار الشاشة الكاملة */
-        #fs-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10;
-            padding: 10px 15px;
-            background-color: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-<div class="video-wrapper">
-    <button id="fs-btn" onclick="document.documentElement.requestFullscreen()">شاشة كاملة</button>
-    <iframe src="https://25.yallashoot11.fun/albaplayer/live1/?serv=1" 
-            allowfullscreen="true" 
-            scrolling="no" 
-            frameborder="0">
-    </iframe>
-</div>
-
-</body>
-</html>
+<iframe src="https://25.yallashoot11.fun/albaplayer/live1/?serv=1" 
+        width="100%" 
+        height="100%" 
+        scrolling="no" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        allow="autoplay; encrypted-media">
+</iframe>
