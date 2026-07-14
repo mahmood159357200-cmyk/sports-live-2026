@@ -5,49 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بث مباشر</title>
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
-        #full-container { width: 100%; height: 100vh; position: relative; }
-        iframe { width: 100%; height: 100%; border: 0; }
-        
-        /* تصميم الزرار */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #000; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* حاوية الفيديو للمحافظة على أبعاد العرض 16:9 للماتش */
+        .video-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #000;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* زرار الشاشة الكاملة */
         #fs-btn {
-            position: absolute;
+            position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 10;
-            padding: 10px 20px;
+            padding: 10px 15px;
             background-color: #ff0000;
             color: white;
             border: none;
             border-radius: 5px;
+            font-size: 14px;
             cursor: pointer;
-            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-<div id="full-container">
-    <button id="fs-btn" onclick="toggleFullScreen()">شاشة كاملة</button>
-    <iframe src="https://hjiojhiofgkuyk.jo3.org/embed.php?id=8552800491" 
+<div class="video-wrapper">
+    <button id="fs-btn" onclick="document.documentElement.requestFullscreen()">شاشة كاملة</button>
+    <iframe src="https://25.yallashoot11.fun/albaplayer/live1/?serv=1" 
             allowfullscreen="true" 
             scrolling="no" 
             frameborder="0">
     </iframe>
 </div>
-
-<script>
-    function toggleFullScreen() {
-        var elem = document.getElementById("full-container");
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-        }
-    }
-</script>
 
 </body>
 </html>
