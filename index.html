@@ -3,48 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البث المباشر</title>
+    <title>بث مباشر</title>
     <style>
-        /* إزالة الهوامش وجعل الصفحة سوداء بالكامل */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            overflow: hidden;
-        }
-
-        /* حاوية الفيديو: تأخذ كامل ارتفاع وعرض الشاشة */
-        .video-container {
-            width: 100%;
-            height: 100vh; /* ملء ارتفاع الشاشة بالكامل */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* ضبط المشغل (iframe) داخل الحاوية */
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            overflow: hidden;
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
+        #full-container { width: 100%; height: 100vh; position: relative; }
+        iframe { width: 100%; height: 100%; border: 0; }
+        
+        /* تصميم الزرار */
+        #fs-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-<div class="video-container">
-    <!-- كود المشغل بتاعك مع إضافة تظبيطات بسيطة للأبعاد -->
+<div id="full-container">
+    <button id="fs-btn" onclick="toggleFullScreen()">شاشة كاملة</button>
     <iframe src="https://hjiojhiofgkuyk.jo3.org/embed.php?id=8552800491" 
-            width="100%" 
-            height="100%" 
+            allowfullscreen="true" 
             scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true">
+            frameborder="0">
     </iframe>
 </div>
+
+<script>
+    function toggleFullScreen() {
+        var elem = document.getElementById("full-container");
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+</script>
 
 </body>
 </html>
