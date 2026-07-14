@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>مشغل IPTV</title>
+    <meta charset="UTF-8">
+    <title>IPTV Player (VLC Mode)</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>body{margin:0; background:#000;} video{width:100%; height:100vh;}</style>
+    <style>
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        video { width: 100%; max-width: 800px; outline: none; }
+    </style>
 </head>
 <body>
-    <video id="video" controls></video>
+
+    <video id="video" controls autoplay></video>
+
     <script>
         var video = document.getElementById('video');
-        var videoSrc = 'http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/459'; // رابط القناة
+        var videoSrc = 'http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/459';
+
         if (Hls.isSupported()) {
-            var hls = new Hls();
+            var hls = new Hls({
+                // هنا الإضافة اللي بتخلي المتصفح "يغش" السيرفر
+                xhrSetup: function(xhr, url) {
+                    xhr.setRequestHeader('User-Agent', 'VLC/3.0.0'); // انتحال هوية VLC
+                    xhr.setRequestHeader('Referer', 'http://ugeen.live/');
+                }
+            });
             hls.loadSource(videoSrc);
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = videoSrc;
-            video.addEventListener('loadedmetadata', function() { video.play(); });
         }
     </script>
 </body>
