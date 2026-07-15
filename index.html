@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>البث المباشر المطور</title>
+    <title>البث المباشر</title>
     <style>
-        /* تصفير الهوامش وجعل الصفحة سوداء بالكامل لتجربة سينمائية */
+        /* تصفير الهوامش وجعل الخلفية سوداء بالكامل */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             background-color: #000;
-            overflow: hidden; /* إخفاء أي أشرطة تمرير خارجية */
+            overflow: hidden; /* إخفاء أشرطة التمرير */
         }
 
-        /* جعل المشغل يملأ الشاشة بالكامل على أي هاتف */
+        /* جعل المشغل يملأ كامل طول وعرض الشاشة */
         iframe {
             width: 100vw;
             height: 100vh;
@@ -26,13 +26,12 @@
 </head>
 <body>
 
-    <!-- الكود المطور لمنع النوافذ المنبثقة وملء الشاشة بالكامل -->
+    <!-- تم إزالة الـ Sandbox ليتخطى حماية السيرفر ويعمل البث بنجاح -->
     <iframe 
         src="https://player.syria-player.live/albaplayer/beinmax1/?serv=0" 
         allowfullscreen="true" 
         frameborder="0" 
-        scrolling="no"
-        sandbox="allow-scripts allow-same-origin allow-forms">
+        scrolling="no">
     </iframe>
 
 </body>
