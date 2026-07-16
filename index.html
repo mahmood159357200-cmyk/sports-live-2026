@@ -1,38 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>البث المباشر</title>
-    <style>
-        /* تصفير الهوامش وجعل الخلفية سوداء بالكامل */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            overflow: hidden; /* إخفاء أشرطة التمرير */
-        }
-
-        /* جعل المشغل يملأ كامل طول وعرض الشاشة */
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- تم إزالة الـ Sandbox ليتخطى حماية السيرفر ويع…
-[1:21 م، 2026/7/16] توكلت على الله: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spain vs Argentina - Final Countdown 2026</title>
+<title>Spain vs Argentina - Final 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Tajawal:wght@800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo','Tajawal',sans-serif}
@@ -67,6 +38,23 @@ body{background:#050507;display:flex;flex-direction:column;align-items:center;ju
 .bottom{margin-top:auto;display:flex;justify-content:space-between;padding:1.1% 2.8% 1.6%;gap:8px}
 .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:4px 10px;font-size:clamp(6px,.78vw,11px);color:rgba(255,255,255,.85);font-weight:700}
 .pill.gold{background:rgba(255,215,0,.14);border-color:rgba(255,215,0,.3);color:#FFD700;font-weight:900}
+
+/* الإضافات الخاصة بمشغل البث المباشر */
+.live-stream-container {
+    width: 100%;
+    margin-top: 1.2%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid #FFD700;
+    aspect-ratio: 16/9;
+    display: none; /* مخفي افتراضياً حتى ينتهي العداد */
+}
+.live-stream-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 @keyframes trophyGlow{0%,100%{filter:drop-shadow(0 0 18px rgba(255,215,0,.55)) brightness(1.05)}50%{filter:drop-shadow(0 0 28px rgba(255,215,0,.9)) brightness(1.18)}}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
 </style>
@@ -83,26 +71,49 @@ body{background:#050507;display:flex;flex-direction:column;align-items:center;ju
       <div class="team"><div class="team-img-wrap"><img src="messi_goal_celebration.webp" alt="Argentina"></div><div class="team-name">ARGENTINA</div><div class="team-sub">Messi 10</div></div>
     </div>
     <div class="title">
-      <h1>نهائي الأحلام - إسبانيا ضد الأرجنتين - الأحد 19 يوليو 2026</h1>
+      <h1 id="main-title">نهائي الأحلام - إسبانيا ضد الأرجنتين - الأحد 19 يوليو 2026</h1>
       <p>MetLife Stadium نيويورك - 10 مساءً بتوقيت القاهرة - ميسي ضد يامال</p>
     </div>
+
     <div class="countdown" id="countdown">
       <div class="box"><div class="num" id="d">00</div><div class="lab"><span class="ar">يوم</span><span class="en">DAYS</span></div></div>
       <div class="box"><div class="num" id="h">00</div><div class="lab"><span class="ar">ساعة</span><span class="en">HOURS</span></div></div>
       <div class="box"><div class="num" id="m">00</div><div class="lab"><span class="ar">دقيقة</span><span class="en">MINS</span></div></div>
       <div class="box"><div class="num" id="s">00</div><div class="lab"><span class="ar">ثانية</span><span class="en">SECS</span></div></div>
     </div>
-    <div class="bottom"><div class="pill">⏰ 10:00 PM EEST • نيويورك</div><div class="pill gold">📺 beIN SPORTS MAX 1 + FOX</div></div>
+
+    <div class="live-stream-container" id="streamContainer">
+        <iframe src="https://example.com/live-stream-link" allowfullscreen></iframe>
+    </div>
+
+    <div class="bottom"><div class="pill">⏰ 10:00 PM EEST • نيويورك</div><div class="pill gold" id="channel-pill">📺 beIN SPORTS MAX 1 + FOX</div></div>
   </div>
 </div>
+
 <script>
+// تحديد وقت الهدف (19 يوليو 2026)
 const TARGET = new Date("2026-07-19T22:00:00+03:00").getTime();
 const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
+const countdownEl = document.getElementById('countdown');
+const streamContainer = document.getElementById('streamContainer');
+const mainTitle = document.getElementById('main-title');
+const channelPill = document.getElementById('channel-pill');
+
 let prev={d:-1,h:-1,m:-1,s:-1};
 function pulse(el){el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),320)}
+
 function update(){
   const diff=TARGET-Date.now();
-  if(diff<=0){document.getElementById('countdown').innerHTML='<div style="width:100%;background:linear-gradient(90deg,#FFD700,#fff2a6,#FFD700);padding:1.5px;border-radius:16px"><div style="background:rgba(0,0,0,.85);border-radius:14px;padding:10px;text-align:center;color:#fff;font-weight:900">انطلقت المباراة النهائية الآن - <span style="color:#FFD700">LIVE 🔴</span></div></div>';return;}
+  
+  if(diff<=0){
+    // عند انتهاء العداد: إخفاء العداد التنازلي وإظهار مشغل البث المباشر
+    countdownEl.style.display = 'none';
+    streamContainer.style.display = 'block';
+    mainTitle.innerHTML = 'البث المباشر للمباراة النهائية الآن - <span style="color:#FFD700">LIVE 🔴</span>';
+    channelPill.innerHTML = '📺 جاري العرض الآن بنجاح';
+    return;
+  }
+  
   const d=Math.floor(diff/(1000*60*60*24)),h=Math.floor((diff/(1000*60*60))%24),m=Math.floor((diff/(1000*60))%60),s=Math.floor((diff/1000)%60);
   if(d!==prev.d){dEl.textContent=String(d).padStart(2,'0');pulse(dEl)}
   if(h!==prev.h){hEl.textContent=String(h).padStart(2,'0');pulse(hEl)}
