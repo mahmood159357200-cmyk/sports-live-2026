@@ -2,84 +2,107 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>نهائي كأس العالم 2026 - إسبانيا ضد الأرجنتين</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Tajawal:wght@800;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نهائي كأس العالم 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;background:#050507}
-body{font-family:'Cairo','Tajawal',sans-serif;display:flex;align-items:center;justify-content:center;padding:0;overflow-x:hidden}
-.wrap{width:100%;max-width:1100px;padding:12px}
-.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000;box-shadow:0 20px 60px rgba(0,0,0,.8),0 0 0 1px rgba(255,215,0,.18)}
-.bg{position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 50%, rgba(198,11,30,.65) 0%, transparent 60%),radial-gradient(70% 90% at 80% 50%, rgba(60,120,200,.65) 0%, transparent 60%),linear-gradient(105deg,#0a0a12 0%,#1a0e1a 45%,#0a1525 100%)}
-.vignette{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 45%, transparent 50%, rgba(0,0,0,.75) 100%)}
-.content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:2.5% 2%}
+body{font-family:'Cairo',sans-serif;background:#000;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.wrap{width:100%;max-width:1100px}
+.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000}
+.bg{position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 50%,rgba(198,11,30,.65) 0%,transparent 60%),radial-gradient(70% 90% at 80% 50%,rgba(60,120,200,.65) 0%,transparent 60%),linear-gradient(105deg,#0a0a12,#1a0e1a 45%,#0a1525)}
+.content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:2.5%}
 .top{display:flex;justify-content:center}
-.top span{background:#000;color:#fff;font-size:9px;letter-spacing:.18em;padding:5px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15)}
+.top span{background:#000;color:#fff;font-size:9px;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.15)}
 .teams{display:flex;align-items:center;justify-content:space-between;flex:1;padding:0 5%}
-.team{flex:0 0 20%;display:flex;flex-direction:column;align-items:center;gap:6px}
-.avatar{width:clamp(56px,8.5vw,110px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.7);background:#222}
-.avatar.spain{box-shadow:0 0 0 2px #C60B1E,0 8px 24px rgba(0,0,0,.7)}
-.avatar.arg{box-shadow:0 0 0 2px #6CB4EE,0 8px 24px rgba(0,0,0,.7)}
-.avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.team-name{color:#fff;font-weight:900;font-size:clamp(9px,1.2vw,15px);text-shadow:0 2px 8px rgba(0,0,0,.9)}
-.t-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
-.trophy{font-size:clamp(32px,6vw,72px);filter:drop-shadow(0 0 18px rgba(255,215,0,.6));animation:glow 2s infinite}
-.vs{background:linear-gradient(135deg,#FFD700,#C9980A);color:#000;font-weight:900;font-size:clamp(9px,1vw,13px);padding:3px 12px;border-radius:999px}
+.avatar{width:clamp(60px,8.5vw,110px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff}
+.avatar.arg{background:linear-gradient(90deg,#74ACDF 33%,#fff 33%,#fff 66%,#74ACDF 66%);color:#000}
+.avatar.spain{background:linear-gradient(180deg,#C60B1E 25%,#FFC400 25%,#FFC400 75%,#C60B1E 75%)}
+.t-center{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.trophy{font-size:clamp(34px,6vw,72px)}
+.vs{background:#FFD700;color:#000;font-weight:900;padding:4px 14px;border-radius:999px;font-size:12px}
 .title{text-align:center;margin-top:1%}
-.title h1{font-family:'Tajawal';font-weight:900;font-size:clamp(10px,1.8vw,22px);line-height:1.2;color:#fff}
+.title h1{color:#fff;font-size:clamp(11px,1.8vw,22px)}
 .title h1 span{color:#FFD700}
-.title p{color:rgba(255,255,255,.6);font-size:clamp(6px,.8vw,11px);margin-top:3px}
-.countdown{display:flex;gap:1.5%;justify-content:center;padding:0 4%;margin-top:1.5%}
-.box{flex:1;background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:2% 1%;text-align:center}
-.box .num{font-weight:900;color:#fff;font-size:clamp(16px,3.2vw,36px);line-height:1;transition:transform .25s}
-.box .num.pulse{transform:scale(1.15)}
-.box .ar{display:block;color:#FFD700;font-weight:800;font-size:clamp(7px,.9vw,11px);margin-top:2px}
-.box .en{display:block;color:rgba(255,255,255,.45);font-size:clamp(5px,.6vw,8px)}
-.bottom{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:1.5%;gap:6px;flex-wrap:wrap}
-.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:3px 8px;font-size:clamp(6px,.7vw,10px);font-weight:700}
-.pill.gold{background:rgba(255,215,0,.15);border-color:rgba(255,215,0,.3);color:#FFD700;font-weight:900}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 14px rgba(255,215,0,.5))}50%{filter:drop-shadow(0 0 26px rgba(255,215,0,.9))}}
-@media (max-width:600px){.frame{border-radius:12px}.teams{padding:0 2%}.countdown{padding:0 2%;gap:1%}.box{border-radius:10px}}
+.countdown{display:flex;gap:8px;justify-content:center;padding:0 4%;margin-top:12px}
+.box{flex:1;background:rgba(255,255,255,.12);border:1px solid rgba(255,215,0,.35);border-radius:16px;padding:12px 4px;text-align:center}
+.num{font-weight:900;color:#fff;font-size:clamp(18px,3.4vw,38px)}
+.ar{color:#FFD700;font-size:10px;display:block}
+.en{color:rgba(255,255,255,.5);font-size:7px;display:block}
+/* البنر الجديد الاحترافي */
+.broadcast{margin-top:12px;background:linear-gradient(90deg,rgba(255,215,0,.15),rgba(255,215,0,.05));border:1px solid rgba(255,215,0,.4);border-radius:12px;padding:8px 12px;display:flex;align-items:center;justify-content:center;gap:8px;animation:glow2 2s infinite}
+.dot{width:8px;height:8px;background:#00ff6a;border-radius:50%;box-shadow:0 0 10px #00ff6a;animation:blink 1s infinite}
+.broadcast span{color:#FFD700;font-weight:800;font-size:clamp(9px,1vw,13px)}
+.broadcast.live{background:linear-gradient(90deg,rgba(255,0,0,.2),rgba(255,215,0,.15));border-color:#ff3b3b}
+.broadcast.live .dot{background:#ff3b3b;box-shadow:0 0 10px #ff3b3b}
+.broadcast.live span{color:#fff}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes glow2{0%,100%{box-shadow:0 0 10px rgba(255,215,0,.1)}50%{box-shadow:0 0 20px rgba(255,215,0,.25)}}
+.bottom{display:flex;justify-content:space-between;margin-top:10px;gap:6px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:4px 10px;font-size:9px}
+@media (max-width:768px){
+body{align-items:flex-start}
+.frame{aspect-ratio:auto;min-height:100vh;border-radius:0}
+.content{min-height:100vh;padding:16px 12px;gap:14px;justify-content:space-between}
+.avatar{width:78px}
+.title h1{font-size:14px}
+.box .num{font-size:26px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <div class="frame">
-<div class="bg"></div><div class="vignette"></div>
+<div class="bg"></div>
 <div class="content">
-<div class="top"><span>WORLD CUP 2026 • FINAL • METLIFE STADIUM NY</span></div>
+<div class="top"><span>WORLD CUP 2026 • FINAL • METLIFE STADIUM</span></div>
 <div class="teams">
-  <div class="team"><div class="avatar arg"><img src="data:image/webp;base64,UklGRoQCAABXRUJQVlA4IHQCAAAvQ0AJ0iLkos2lVLiJv4s2mG4u7r3Zk+8V7z7vOQY0P8A8b2J0k... (صورة الأرجنتين مدمجة)" alt="Argentina"></div><div class="team-name">ARGENTINA</div></div>
-  <div class="t-center"><div class="trophy">🏆</div><div class="vs">VS</div></div>
-  <div class="team"><div class="avatar spain"><img src="data:image/webp;base64,UklGRpQDAABXRUJQVlA4IIQDAAAv... (صورة إسبانيا مدمجة)" alt="Spain"></div><div class="team-name">ESPAÑA</div></div>
+<div style="text-align:center"><div class="avatar arg">10</div><div style="color:#fff;font-weight:900;margin-top:6px">ARGENTINA</div></div>
+<div class="t-center"><div class="trophy">🏆</div><div class="vs">VS</div></div>
+<div style="text-align:center"><div class="avatar spain">ES</div><div style="color:#fff;font-weight:900;margin-top:6px">ESPAÑA</div></div>
 </div>
-<div class="title"><h1>نهائي الأحلام - <span>إسبانيا ضد الأرجنتين</span> - الأحد 19 يوليو 2026</h1><p>MetLife Stadium نيويورك - الساعة 10 مساءً بتوقيت القاهرة</p></div>
+<div class="title"><h1>نهائي الأحلام - <span>إسبانيا ضد الأرجنتين</span> - الأحد 19 يوليو 2026</h1></div>
 <div class="countdown" id="cd">
-  <div class="box"><div class="num" id="d">00</div><span class="ar">يوم</span><span class="en">DAYS</span></div>
-  <div class="box"><div class="num" id="h">00</div><span class="ar">ساعة</span><span class="en">HOURS</span></div>
-  <div class="box"><div class="num" id="m">00</div><span class="ar">دقيقة</span><span class="en">MINS</span></div>
-  <div class="box"><div class="num" id="s">00</div><span class="ar">ثانية</span><span class="en">SECS</span></div>
+<div class="box"><div class="num" id="d">00</div><span class="ar">يوم</span><span class="en">DAYS</span></div>
+<div class="box"><div class="num" id="h">00</div><span class="ar">ساعة</span><span class="en">HOURS</span></div>
+<div class="box"><div class="num" id="m">00</div><span class="ar">دقيقة</span><span class="en">MINS</span></div>
+<div class="box"><div class="num" id="s">00</div><span class="ar">ثانية</span><span class="en">SECS</span></div>
 </div>
-<div class="bottom"><div class="pill">⏰ 10:00 PM EEST • نيويورك</div><div class="pill gold">📺 beIN MAX 1 + FOX • FINAL</div></div>
+
+<!-- البنر الاحترافي الجديد -->
+<div class="broadcast" id="broadcast">
+<div class="dot"></div>
+<span id="bText">📡 البث المباشر سيبدأ هنا قبل المباراة بـ 30 دقيقة</span>
+</div>
+
+<div class="bottom"><div class="pill">⏰ 10:00 PM EEST</div><div class="pill" style="background:rgba(255,215,0,.15);color:#FFD700">📺 beIN MAX 1 + FOX</div></div>
 </div>
 </div>
 </div>
 <script>
 const TARGET=new Date("2026-07-19T22:00:00+03:00").getTime();
-const els={d:document.getElementById('d'),h:document.getElementById('h'),m:document.getElementById('m'),s:document.getElementById('s')};
-let prev={d:-1,h:-1,m:-1,s:-1};
-function pulse(el){el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),250)}
+const BROADCAST_START=TARGET-30*60*1000;
+const d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');
+const bBox=document.getElementById('broadcast'),bText=document.getElementById('bText');
 function update(){
-  const diff=TARGET-Date.now();
-  if(diff<=0){document.getElementById('cd').innerHTML='<div style="width:100%;background:linear-gradient(90deg,#FFD700,#fff2a6,#FFD700);padding:2px;border-radius:14px"><div style="background:#000;border-radius:12px;padding:10px;text-align:center;color:#fff;font-weight:900">انطلقت المباراة النهائية الآن - <span style="color:#FFD700">LIVE 🔴</span></div></div>';return;}
-  const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000%24),m=Math.floor(diff/60000%60),s=Math.floor(diff/1000%60);
-  if(d!==prev.d){els.d.textContent=String(d).padStart(2,'0');pulse(els.d)}
-  if(h!==prev.h){els.h.textContent=String(h).padStart(2,'0');pulse(els.h)}
-  if(m!==prev.m){els.m.textContent=String(m).padStart(2,'0');pulse(els.m)}
-  if(s!==prev.s){els.s.textContent=String(s).padStart(2,'0');pulse(els.s)}
-  prev={d,h,m,s};
+const now=Date.now();
+const diff=TARGET-now;
+if(diff<=0){
+document.getElementById('cd').innerHTML='<div style="width:100%;background:#FFD700;padding:2px;border-radius:14px"><div style="background:#000;border-radius:12px;padding:12px;text-align:center;color:#fff;font-weight:900">🔴 المباراة جارية الآن - البث المباشر</div></div>';
+bBox.classList.add('live');
+bText.innerHTML='🔴 البث المباشر الآن - اضغط للمشاهدة';
+return;
+}
+if(now>=BROADCAST_START){
+bBox.classList.add('live');
+bText.innerHTML='🔴 البث المباشر يبدأ الآن - الاستوديو التحليلي مباشر';
+}
+d.textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+h.textContent=String(Math.floor(diff/3600000%24)).padStart(2,'0');
+m.textContent=String(Math.floor(diff/60000%60)).padStart(2,'0');
+s.textContent=String(Math.floor(diff/1000%60)).padStart(2,'0');
 }
 setInterval(update,1000);update();
 </script>
 </body>
+</html>
