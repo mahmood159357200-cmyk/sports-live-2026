@@ -26,13 +26,91 @@
 </head>
 <body>
 
-    <!-- تم إزالة الـ Sandbox ليتخطى حماية السيرفر ويعمل البث بنجاح -->
-    <iframe 
-        src="https://player.syria-player.live/albaplayer/beinmax1/?serv=0" 
-        allowfullscreen="true" 
-        frameborder="0" 
-        scrolling="no">
-    </iframe>
-
+    <!-- تم إزالة الـ Sandbox ليتخطى حماية السيرفر ويع…
+[1:21 م، 2026/7/16] توكلت على الله: <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain vs Argentina - Final Countdown 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Tajawal:wght@800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo','Tajawal',sans-serif}
+body{background:#050507;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:16px}
+.video-frame{position:relative;width:100%;max-width:1100px;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 25px 80px rgba(0,0,0,.85),0 0 0 1px rgba(255,215,0,.18)}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(2px) scale(1.08)}
+.overlay{position:absolute;inset:0;background: radial-gradient(70% 90% at 18% 55%, rgba(198,11,30,.58) 0%, transparent 58%),radial-gradient(70% 90% at 82% 55%, rgba(108,180,238,.52) 0%, transparent 58%),radial-gradient(90% 55% at 50% 115%, rgba(255,215,0,.28) 0%, transparent 62%),linear-gradient(100deg, rgba(12,6,6,.9) 0%, rgba(12,6,20,.45) 35%, rgba(6,14,24,.55) 68%, rgba(18,12,3,.9) 100%)}
+.vignette{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.78) 100%)}
+.content{position:relative;z-index:10;display:flex;flex-direction:column;height:100%;padding:2.2%}
+.top-badge{display:flex;justify-content:center}
+.top-badge span{background:#000;color:#fff;font-size:10px;letter-spacing:.18em;padding:6px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.15)}
+.teams{display:flex;align-items:center;justify-content:space-between;gap:2%;flex:1;padding:1% 3%}
+.team{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 22%}
+.team-img-wrap{position:relative;width:clamp(42px,9.5vw,124px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid rgba(255,255,255,.9)}
+.team-img-wrap.spain{box-shadow:0 0 0 2px rgba(198,11,30,.9),0 8px 24px rgba(0,0,0,.7),0 0 28px rgba(198,11,30,.45)}
+.team-img-wrap img{width:100%;height:100%;object-fit:cover}
+.team-name{margin-top:8px;font-weight:900;color:#fff;font-size:clamp(9px,1.45vw,18px);text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.team-sub{margin-top:4px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:2px 8px;font-size:clamp(6px,.78vw,11px);color:rgba(255,255,255,.9)}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.trophy{position:relative;width:clamp(56px,12vw,160px);aspect-ratio:.75;animation:trophyGlow 2.6s ease-in-out infinite}
+.trophy img{width:100%;height:100%;object-fit:contain}
+.vs-badge{margin-top:-6%;background:linear-gradient(135deg,#FFD700,#C9980A);color:#000;font-weight:900;padding:4px 14px;border-radius:999px;font-size:clamp(8px,1.1vw,14px);border:1px solid rgba(255,255,255,.5)}
+.title{text-align:center;margin-top:.5%}
+.title h1{font-weight:900;font-size:clamp(11px,2.05vw,28px);background:linear-gradient(92deg,#fff 12%,#FFD700 48%,#fff 86%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3.2s linear infinite;background-size:200% 100%}
+.title p{color:rgba(255,255,255,.65);font-size:clamp(6px,.88vw,12px);margin-top:4px}
+.countdown{display:flex;gap:1.6%;justify-content:center;padding:0 6%;margin-top:1.2%}
+.box{flex:1;background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,.35);border-radius:18px;padding:3% 2%;text-align:center;position:relative}
+.box .num{font-weight:900;color:#fff;font-size:clamp(18px,3.8vw,48px);line-height:1;transition:transform .3s}
+.box .num.pulse{transform:scale(1.12)}
+.box .lab .ar{color:#FFD700;font-weight:900;font-size:clamp(7px,.95vw,12px);display:block}
+.box .lab .en{color:rgba(255,255,255,.55);font-size:clamp(5px,.62vw,9px)}
+.bottom{margin-top:auto;display:flex;justify-content:space-between;padding:1.1% 2.8% 1.6%;gap:8px}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:4px 10px;font-size:clamp(6px,.78vw,11px);color:rgba(255,255,255,.85);font-weight:700}
+.pill.gold{background:rgba(255,215,0,.14);border-color:rgba(255,215,0,.3);color:#FFD700;font-weight:900}
+@keyframes trophyGlow{0%,100%{filter:drop-shadow(0 0 18px rgba(255,215,0,.55)) brightness(1.05)}50%{filter:drop-shadow(0 0 28px rgba(255,215,0,.9)) brightness(1.18)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+</style>
+</head>
+<body>
+<div class="video-frame">
+  <img class="bg" src="fifa_world_cup_celebration.webp" alt="">
+  <div class="overlay"></div><div class="vignette"></div>
+  <div class="content">
+    <div class="top-badge"><span>WORLD CUP 2026 • FINAL • METLIFE STADIUM NY</span></div>
+    <div class="teams">
+      <div class="team"><div class="team-img-wrap spain"><img src="spain_football_celebration.webp" alt="Spain"></div><div class="team-name">ESPAÑA</div><div class="team-sub">Yamal 19</div></div>
+      <div class="center"><div class="trophy"><img src="argentina_spain_final_poster.webp" alt="Trophy"></div><div class="vs-badge">VS</div></div>
+      <div class="team"><div class="team-img-wrap"><img src="messi_goal_celebration.webp" alt="Argentina"></div><div class="team-name">ARGENTINA</div><div class="team-sub">Messi 10</div></div>
+    </div>
+    <div class="title">
+      <h1>نهائي الأحلام - إسبانيا ضد الأرجنتين - الأحد 19 يوليو 2026</h1>
+      <p>MetLife Stadium نيويورك - 10 مساءً بتوقيت القاهرة - ميسي ضد يامال</p>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="box"><div class="num" id="d">00</div><div class="lab"><span class="ar">يوم</span><span class="en">DAYS</span></div></div>
+      <div class="box"><div class="num" id="h">00</div><div class="lab"><span class="ar">ساعة</span><span class="en">HOURS</span></div></div>
+      <div class="box"><div class="num" id="m">00</div><div class="lab"><span class="ar">دقيقة</span><span class="en">MINS</span></div></div>
+      <div class="box"><div class="num" id="s">00</div><div class="lab"><span class="ar">ثانية</span><span class="en">SECS</span></div></div>
+    </div>
+    <div class="bottom"><div class="pill">⏰ 10:00 PM EEST • نيويورك</div><div class="pill gold">📺 beIN SPORTS MAX 1 + FOX</div></div>
+  </div>
+</div>
+<script>
+const TARGET = new Date("2026-07-19T22:00:00+03:00").getTime();
+const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
+let prev={d:-1,h:-1,m:-1,s:-1};
+function pulse(el){el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),320)}
+function update(){
+  const diff=TARGET-Date.now();
+  if(diff<=0){document.getElementById('countdown').innerHTML='<div style="width:100%;background:linear-gradient(90deg,#FFD700,#fff2a6,#FFD700);padding:1.5px;border-radius:16px"><div style="background:rgba(0,0,0,.85);border-radius:14px;padding:10px;text-align:center;color:#fff;font-weight:900">انطلقت المباراة النهائية الآن - <span style="color:#FFD700">LIVE 🔴</span></div></div>';return;}
+  const d=Math.floor(diff/(1000*60*60*24)),h=Math.floor((diff/(1000*60*60))%24),m=Math.floor((diff/(1000*60))%60),s=Math.floor((diff/1000)%60);
+  if(d!==prev.d){dEl.textContent=String(d).padStart(2,'0');pulse(dEl)}
+  if(h!==prev.h){hEl.textContent=String(h).padStart(2,'0');pulse(hEl)}
+  if(m!==prev.m){mEl.textContent=String(m).padStart(2,'0');pulse(mEl)}
+  if(s!==prev.s){sEl.textContent=String(s).padStart(2,'0');pulse(sEl)}
+  prev={d,h,m,s};
+}
+setInterval(update,1000);update();
+</script>
 </body>
 </html>
