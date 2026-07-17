@@ -17,52 +17,52 @@
             background-color: #000;
             font-family: Arial, sans-serif;
         }
-        /* حاوية الفيديو لملء الشاشة بالكامل */
-        .video-container {
+        /* حاوية الفيديو الأساسية */
+        .video-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
-        /* جعل مشغل اليوتيوب يغطي كامل العرض والارتفاع */
+        /* تكبير إطار يوتيوب لإخفاء الأزرار والشعار خارج حدود الشاشة */
         iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
             border: none;
+            pointer-events: none; /* يمنع المشاهد من النقر لإظهار أزرار التحكم أو إيقاف الفيديو */
         }
-        /* شعار MK SPORT الثابت فوق شعار القناة الناقلة */
+        /* الشعار بعد تصغيره ونقله إلى أعلى يسار الشاشة */
         .watermark-logo {
             position: absolute;
-            top: 25px; /* المسافة من الأعلى */
-            right: 25px; /* المسافة من اليمين ليغطي شعار القناة بدقة */
-            z-index: 9999; /* لضمان ظهور اللوجو في المقدمة دائماً */
-            background-color: #4a148c; /* اللون البنفسجي المطابق لشعارك */
+            top: 20px; /* المسافة من الأعلى */
+            left: 20px; /* تم نقله إلى اليسار */
+            z-index: 9999; /* لضمان ظهوره فوق كل شيء */
+            background-color: #4a148c; /* اللون البنفسجي لشعارك */
             color: #ffffff;
             font-weight: bold;
-            font-size: 22px;
-            padding: 12px 26px;
-            border-radius: 50px; /* حواف دائرية انسيابية */
-            box-shadow: 0px 5px 15px rgba(0,0,0,0.6); /* تأثير ظل لإبراز اللوجو */
+            font-size: 16px; /* تم تصغير حجم الخط */
+            padding: 8px 18px; /* تم تصغير الأبعاد */
+            border-radius: 50px; 
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
             user-select: none;
-            pointer-events: none; /* يمنع الضغط على اللوجو بالخطأ */
-            letter-spacing: 1px;
-            border: 3px solid #ffffff; /* إطار أبيض يحدد اللوجو بدقة */
+            pointer-events: none; 
+            letter-spacing: 0.5px;
+            border: 2px solid #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <!-- مشغل يوتيوب المطور: تشغيل تلقائي، تكرار مستمر، بدون صوت لتخطي حظر المتصفحات -->
+    <div class="video-wrapper">
         <iframe 
-            src="https://www.youtube.com/embed/yfR_HprJx7s?autoplay=1&loop=1&playlist=yfR_HprJx7s&mute=1&controls=1&rel=0" 
+            src="https://www.youtube.com/embed/yfR_HprJx7s?autoplay=1&loop=1&playlist=yfR_HprJx7s&mute=1&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
         </iframe>
 
-        <!-- شعار MK Sport الثابت والمحمي من النقر -->
         <div class="watermark-logo">
             MK SPORT
         </div>
