@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MK Sport Live</title>
+    <!-- تضمين مكتبة مشغل الفيديو الشهيرة لضمان تشغيل أي نوع بث مباشر -->
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -17,56 +19,66 @@
             background-color: #000;
             font-family: Arial, sans-serif;
         }
-        /* حاوية الفيديو لملء الشاشة */
         .video-container {
             position: relative;
             width: 100%;
             height: 100%;
         }
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            pointer-events: auto; /* يسمح بالتفاعل مع أزرار الفيديو إذا لزم الأمر */
+        /* كود جعل المشغل يغطي كامل الشاشة بدقة */
+        .video-js {
+            width: 100% !important;
+            height: 100% !important;
         }
-        /* كود اللوجو الثابت فوق الشعار */
+        /* تصميم شعار MK SPORT الثابت والمطابق للصورة المرفقة */
         .watermark-logo {
             position: absolute;
-            top: 20px; /* المسافة من الأعلى */
-            right: 20px; /* المسافة من اليمين لتغطية الشعار */
-            z-index: 9999; /* لضمان ظهور اللوجو فوق الفيديو دائماً */
-            background-color: #4a148c; /* لون بنفسجي مطابق لخلفية اللوجو المرفق */
+            top: 25px; 
+            right: 25px; 
+            z-index: 9999; 
+            background-color: #4a148c; 
             color: #ffffff;
             font-weight: bold;
-            font-size: 20px;
-            padding: 10px 20px;
-            border-radius: 25px; /* حواف دائرية تشبه تصميم اللوجو المرفق */
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            font-size: 24px;
+            padding: 12px 28px;
+            border-radius: 50px; 
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.6);
             user-select: none;
-            pointer-events: none; /* يمنع النقر على اللوجو بالخطأ */
+            pointer-events: none; 
             letter-spacing: 1px;
-            border: 2px solid #ffffff;
+            border: 3px solid #ffffff;
         }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <!-- كود مشغل يوتيوب مع إعدادات التشغيل التلقائي والتكرار والبث -->
-        <iframe 
-            src="https://www.youtube.com/embed/N3X5_HAAvy8?autoplay=1&loop=1&playlist=N3X5_HAAvy8&mute=1&controls=1&rel=0&showinfo=0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
+        <!-- مشغل الفيديو الذكي: يعمل تلقائياً، مكرر، وبدون صوت لتخطي حظر المتصفحات -->
+        <video 
+            id="mk-player" 
+            class="video-js vjs-default-skin" 
+            autoplay 
+            muted 
+            loop 
+            controls 
+            preload="auto">
+            <!-- استبدل هذا الرابط برابط البث المباشر الخاص بك (M3U8 أو MP4) -->
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+        </video>
 
-        <!-- شعار MK Sport الثابت -->
+        <!-- شعار MK Sport الثابت فوق الشعار الأصلي للقناة -->
         <div class="watermark-logo">
             MK SPORT
         </div>
     </div>
 
+    <!-- ملفات تشغيل المشغل -->
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+    <script>
+        // كود لتأكيد التشغيل التلقائي حتى لو حاول المتصفح منعه
+        var player = videojs('mk-player');
+        player.ready(function() {
+            player.play();
+        });
+    </script>
 </body>
 </html>
