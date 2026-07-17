@@ -4,89 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MK Sport Live</title>
-    <!-- استدعاء مكتبة المشغل الاحترافي لإخفاء معالم اليوتيوب تماماً -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { width: 100%; height: 100%; overflow: hidden; background-color: #000; font-family: Arial, sans-serif; }
+        .video-container { position: relative; width: 100%; height: 100%; }
+        .plyr, .plyr__video-wrapper { width: 100% !important; height: 100% !important; }
+        
+        .plyr__controls, .plyr__control--overlaid, .plyr__volume, .plyr--video iframe {
+            display: none !important; opacity: 0 !important; pointer-events: none !important;
         }
-        body, html {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000;
-            font-family: Arial, sans-serif;
+
+        /* شاشة التفاعل لتفعيل الصوت */
+        #interaction-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); z-index: 10000;
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 18px; font-weight: bold; text-align: center;
+            cursor: pointer; padding: 20px;
         }
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        .touch-hint {
+            background: rgba(74, 20, 140, 0.9); padding: 15px 30px; 
+            border-radius: 50px; border: 2px solid white;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+            animation: pulse 1.5s infinite;
         }
-        /* ضبط أبعاد المشغل لملء الشاشة بالكامل */
-        .plyr, .plyr__video-wrapper {
-            width: 100% !important;
-            height: 100% !important;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-        /* إخفاء شريط الوقت وأزرار التحكم تماماً لجعلها تبدو كبث مباشر */
-        .plyr__controls, .plyr__control--overlaid, .plyr__volume {
-            display: none !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-        }
-        /* منع أي نقرات على الفيديو لإخفاء أي عناصر لليوتيوب */
-        .plyr--video iframe {
-            pointer-events: none !important;
-        }
-        /* تصميم اللوجو المصغر الثابت في أعلى جهة الشمال (اليسار) */
+
+        /* الشعار المصغر في أعلى الشمال */
         .watermark-logo {
-            position: absolute;
-            top: 15px; 
-            left: 15px; 
-            z-index: 99999; /* لضمان الظهور فوق المشغل الجديد */
-            background-color: #4a148c; 
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 14px; /* حجم خط صغير ومناسب */
-            padding: 6px 14px; /* أبعاد أصغر ومتناسقة */
-            border-radius: 30px; 
-            box-shadow: 0px 3px 8px rgba(0,0,0,0.5);
-            user-select: none;
-            pointer-events: none; 
-            letter-spacing: 0.5px;
-            border: 2px solid #ffffff;
+            position: absolute; top: 15px; left: 15px; z-index: 99999;
+            background-color: #4a148c; color: #ffffff; font-weight: bold;
+            font-size: 14px; padding: 6px 14px; border-radius: 30px;
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.5); border: 2px solid #ffffff;
+            user-select: none; pointer-events: none;
         }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <!-- حاوية المشغل الذكي المرتبطة باليوتيوب -->
-        <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="yfR_HprJx7s"></div>
-
-        <!-- شعار MK Sport المصغر في أعلى الشمال -->
-        <div class="watermark-logo">
-            MK SPORT
+        <!-- شاشة اللمس الذكية لتفعيل الصوت -->
+        <div id="interaction-overlay">
+            <div class="touch-hint">اضغط هنا لتشغيل الإعلان والحماس 🔊</div>
         </div>
+
+        <!-- فيديو إعلان كرة القدم العالمي والمحلي المجمع -->
+        <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="XhU6v_f2Ies"></div>
+
+        <!-- شعار موقعك الثابت -->
+        <div class="watermark-logo">MK SPORT</div>
     </div>
 
-    <!-- ملف تشغيل المكتبة الذكية -->
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
     <script>
-        // إعدادات المشغل: تشغيل تلقائي، كتم الصوت لضمان العمل، وتكرار مستمر
         const player = new Plyr('#player', {
             autoplay: true,
-            muted: true,
+            muted: true, 
             loop: { active: true },
-            controls: [], /* مصفوفة فارغة تعني حذف كل أزرار التحكم تماماً */
-            fullscreen: { enabled: false },
-            keyboard: { global: false, focused: false }
+            controls: []
         });
 
-        // تأكيد التشغيل التلقائي فور جاهزية المشغل
-        player.on('ready', () => {
-            player.play();
+        const overlay = document.getElementById('interaction-overlay');
+        overlay.addEventListener('click', () => {
+            player.muted = false; 
+            player.setVolume(1);  
+            player.play();        
+            overlay.style.display = 'none'; 
         });
     </script>
 </body>
