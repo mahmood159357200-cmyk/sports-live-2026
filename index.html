@@ -2,120 +2,14 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MK SPORT - نهائي كأس العالم 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Cairo',sans-serif}
-.wrap{width:100vw;height:100vh;height:100dvh;display:flex;justify-content:center;align-items:center;background:#000}
-.frame{position:relative;width:100%;height:100%;max-width:480px;margin:0 auto;overflow:hidden;background:linear-gradient(135deg,#4B0082,#8A2BE2,#9400D3,#6A0DAD);display:flex;flex-direction:column}
-@media(min-width:768px){.frame{max-width:420px;border-radius:24px;border:3px solid rgba(255,255,255,.15);box-shadow:0 0 80px rgba(138,43,226,.6);height:90vh;max-height:860px}}
-.bg{position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 20%,rgba(255,255,255,.15),transparent 60%)}
-.content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:14px 14px 12px;gap:12px;justify-content:space-between}
-.top-logo{display:flex;flex-direction:column;align-items:center;gap:8px}
-.logo-img{width:165px;height:auto;filter:drop-shadow(0 4px 18px rgba(0,0,0,.5)) drop-shadow(0 0 12px rgba(255,255,255,.6));animation:logoPulse 2.5s infinite}
-.top-badge{background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:5px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}
-.teams{display:flex;align-items:center;justify-content:space-between;padding:8px 4%;gap:10px}
-.player-box{text-align:center;flex:1}
-.avatar{width:92px;height:92px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 0 0 3px #FFD700,0 0 25px rgba(255,215,0,.7);margin:0 auto;position:relative;animation:avatarFloat 3s ease-in-out infinite}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.player-name{color:#fff;font-weight:900;margin-top:8px;font-size:11px}
-.player-team{color:#FFD700;font-size:8px;font-weight:700;margin-top:2px}
-.t-center{display:flex;flex-direction:column;align-items:center;gap:6px}
-.trophy{font-size:38px;filter:drop-shadow(0 0 10px gold);animation:trophyGlow 2s infinite}
-.vs{background:#FFD700;color:#000;font-weight:900;padding:4px 14px;border-radius:999px;font-size:12px}
-.title{text-align:center;padding:4px 8px}
-.title h1{color:#fff;font-size:14px;line-height:1.5}
-.title h1 span{color:#FFD700}
-.countdown{display:flex;gap:7px;justify-content:center}
-.box{flex:1;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,215,0,.4);border-radius:14px;padding:12px 2px;text-align:center}
-.num{font-weight:900;color:#fff;font-size:22px}
-.ar{color:#FFD700;font-size:9px;display:block;font-weight:800}
-.en{color:rgba(255,255,255,.6);font-size:6px;display:block}
-.broadcast{background:linear-gradient(90deg,rgba(255,215,0,.2),rgba(255,215,0,.08));border:1px solid rgba(255,215,0,.5);border-radius:12px;padding:10px 10px;display:flex;align-items:center;justify-content:center;gap:8px;animation:glow2 2s infinite}
-.dot{width:8px;height:8px;background:#00ff6a;border-radius:50%;box-shadow:0 0 10px #00ff6a;animation:blink 1s infinite}
-.broadcast span{color:#FFD700;font-weight:800;font-size:10.5px;text-align:center}
-.bottom{display:flex;justify-content:space-between;gap:6px}
-.pill{background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:5px 10px;font-size:8.5px}
-.progress{position:absolute;bottom:0;left:0;height:4px;background:#FFD700;z-index:10;box-shadow:0 0 10px #FFD700}
-.video-overlay{position:absolute;top:155px;left:0;right:0;z-index:5;pointer-events:none;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s}
-.video-overlay.active{opacity:1}
-.video-text{background:rgba(0,0,0,.65);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,.4);color:#FFD700;padding:8px 14px;border-radius:10px;font-weight:800;font-size:11px;text-align:center;box-shadow:0 0 15px rgba(255,215,0,.3);transform:translateY(-8px) scale(.9);transition:all .4s;line-height:1.4}
-.video-overlay.active .video-text{transform:translateY(0) scale(1)}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes glow2{0%,100%{box-shadow:0 0 10px rgba(255,215,0,.15)}50%{box-shadow:0 0 22px rgba(255,215,0,.4)}}
-@keyframes logoPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-@keyframes avatarFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes trophyGlow{0%,100%{filter:drop-shadow(0 0 10px gold)}50%{filter:drop-shadow(0 0 20px gold) brightness(1.2)}}
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:'Cairo',sans-serif}.wrap{width:100vw;height:100vh;height:100dvh;display:flex;justify-content:center;align-items:center;background:#000}.frame{position:relative;width:100%;height:100%;max-width:480px;margin:0 auto;overflow:hidden;background:linear-gradient(135deg,#4B0082,#8A2BE2,#9400D3,#6A0DAD);display:flex;flex-direction:column}@media(min-width:768px){.frame{max-width:420px;border-radius:24px;border:3px solid rgba(255,255,255,.15);box-shadow:0 0 80px rgba(138,43,226,.6);height:90vh;max-height:860px}}.bg{position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 20%,rgba(255,255,255,.15),transparent 60%)}.content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:14px 14px 12px;gap:12px;justify-content:space-between}.top-logo{display:flex;flex-direction:column;align-items:center;gap:8px}.logo-img{width:165px;height:auto;filter:drop-shadow(0 4px 18px rgba(0,0,0,.5)) drop-shadow(0 0 12px rgba(255,255,255,.6));animation:logoPulse 2.5s infinite}.top-badge{background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:5px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}.teams{display:flex;align-items:center;justify-content:space-between;padding:8px 4%;gap:10px}.player-box{text-align:center;flex:1}.avatar{width:92px;height:92px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 0 0 3px #FFD700,0 0 25px rgba(255,215,0,.7);margin:0 auto;position:relative;animation:avatarFloat 3s ease-in-out infinite}.avatar img{width:100%;height:100%;object-fit:cover}.player-name{color:#fff;font-weight:900;margin-top:8px;font-size:11px}.player-team{color:#FFD700;font-size:8px;font-weight:700;margin-top:2px}.t-center{display:flex;flex-direction:column;align-items:center;gap:6px}.trophy{font-size:38px;filter:drop-shadow(0 0 10px gold);animation:trophyGlow 2s infinite}.vs{background:#FFD700;color:#000;font-weight:900;padding:4px 14px;border-radius:999px;font-size:12px}.title{text-align:center;padding:4px 8px}.title h1{color:#fff;font-size:14px;line-height:1.5}.title h1 span{color:#FFD700}.countdown{display:flex;gap:7px;justify-content:center}.box{flex:1;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,215,0,.4);border-radius:14px;padding:12px 2px;text-align:center}.num{font-weight:900;color:#fff;font-size:22px}.ar{color:#FFD700;font-size:9px;display:block;font-weight:800}.en{color:rgba(255,255,255,.6);font-size:6px;display:block}.broadcast{background:linear-gradient(90deg,rgba(255,215,0,.2),rgba(255,215,0,.08));border:1px solid rgba(255,215,0,.5);border-radius:12px;padding:10px 10px;display:flex;align-items:center;justify-content:center;gap:8px;animation:glow2 2s infinite}.dot{width:8px;height:8px;background:#00ff6a;border-radius:50%;box-shadow:0 0 10px #00ff6a;animation:blink 1s infinite}.broadcast span{color:#FFD700;font-weight:800;font-size:10.5px;text-align:center}.bottom{display:flex;justify-content:space-between;gap:6px}.pill{background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:5px 10px;font-size:8.5px}.progress{position:absolute;bottom:0;left:0;height:4px;background:#FFD700;z-index:10;box-shadow:0 0 10px #FFD700}.video-overlay{position:absolute;top:158px;left:0;right:0;z-index:5;pointer-events:none;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s}.video-overlay.active{opacity:1}.video-text{background:rgba(0,0,0,.65);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,.4);color:#FFD700;padding:7px 12px;border-radius:9px;font-weight:800;font-size:10px;text-align:center;box-shadow:0 0 15px rgba(255,215,0,.3);transform:translateY(-8px) scale(.9);transition:all .4s;line-height:1.3}.video-overlay.active .video-text{transform:translateY(0) scale(1)}@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}@keyframes glow2{0%,100%{box-shadow:0 0 10px rgba(255,215,0,.15)}50%{box-shadow:0 0 22px rgba(255,215,0,.4)}}@keyframes logoPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}@keyframes avatarFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes trophyGlow{0%,100%{filter:drop-shadow(0 0 10px gold)}50%{filter:drop-shadow(0 0 20px gold) brightness(1.2)}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<div class="frame" id="frame">
-<div class="bg"></div>
-<div class="progress" id="progress"></div>
+<div class="wrap"><div class="frame"><div class="bg"></div><div class="progress" id="progress"></div>
 <div class="content">
-<div class="top-logo">
-<img src="PUT_LOGO_BASE64_HERE" class="logo-img" alt="MK SPORT">
-<div class="top-badge">WORLD CUP 2026 • FINAL • METLIFE STADIUM</div>
-</div>
-<div class="teams">
-<div class="player-box">
-<div class="avatar"><img src="PUT_MESSI_BASE64_HERE" alt="Messi"></div>
-<div class="player-name">MESSI</div>
-<div class="player-team">ARGENTINA • القائد</div>
-</div>
-<div class="t-center"><div class="trophy">🏆</div><div class="vs">VS</div></div>
-<div class="player-box">
-<div class="avatar"><img src="PUT_MORATA_BASE64_HERE" alt="Morata"></div>
-<div class="player-name">MORATA</div>
-<div class="player-team">ESPAÑA • القائد</div>
-</div>
-</div>
-<div class="title"><h1>نهائي الأحلام - <span>إسبانيا ضد الأرجنتين</span><br>الأحد 19 يوليو 2026</h1></div>
-<div class="countdown" id="cd">
-<div class="box"><div class="num" id="d">00</div><span class="ar">يوم</span><span class="en">DAYS</span></div>
-<div class="box"><div class="num" id="h">00</div><span class="ar">ساعة</span><span class="en">HOURS</span></div>
-<div class="box"><div class="num" id="m">00</div><span class="ar">دقيقة</span><span class="en">MINS</span></div>
-<div class="box"><div class="num" id="s">00</div><span class="ar">ثانية</span><span class="en">SECS</span></div>
-</div>
-<div class="broadcast" id="broadcast"><div class="dot"></div><span id="bText">📡 البث المباشر سيبدأ هنا قبل المباراة بـ 30 دقيقة</span></div>
-<div class="bottom"><div class="pill">⏰ 10:00 PM EEST</div><div class="pill" style="background:rgba(255,215,0,.2);color:#FFD700">📺 beIN MAX 1 + FOX</div></div>
-</div>
-<div class="video-overlay" id="v1"><div class="video-text">في أعلى الصفحة<br>اضغط <span style="color:#fff">مشاهدة الآن</span></div></div>
-<div class="video-overlay" id="v2"><div class="video-text">البث 24 ساعة<br>بدون انقطاع 🟢</div></div>
-<div class="video-overlay" id="v3"><div class="video-text">⏰ قبل المباراة بنصف ساعة</div></div>
-</div>
-</div>
-<script>
-const TARGET=new Date("2026-07-19T22:00:00+03:00").getTime();
-const BROADCAST_START=TARGET-30*60*1000;
-const d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');
-const bBox=document.getElementById('broadcast'),bText=document.getElementById('bText');
-const progress=document.getElementById('progress');
-function updateCD(){
-const now=Date.now();const diff=TARGET-now;
-if(diff<=0){document.getElementById('cd').innerHTML='<div style="width:100%;background:#FFD700;padding:2px;border-radius:14px"><div style="background:#000;border-radius:12px;padding:12px;text-align:center;color:#fff;font-weight:900">🔴 المباراة جارية الآن</div></div>';bBox.classList.add('live');bText.innerHTML='🔴 البث المباشر الآن - اضغط للمشاهدة';return;}
-if(now>=BROADCAST_START){bBox.classList.add('live');bText.innerHTML='🔴 البث المباشر يبدأ الآن - الاستوديو التحليلي مباشر';}
-d.textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
-h.textContent=String(Math.floor(diff/3600000%24)).padStart(2,'0');
-m.textContent=String(Math.floor(diff/60000%60)).padStart(2,'0');
-s.textContent=String(Math.floor(diff/1000%60)).padStart(2,'0');
-}
-setInterval(updateCD,1000);updateCD();
-let start=Date.now();
-const v1=document.getElementById('v1'),v2=document.getElementById('v2'),v3=document.getElementById('v3');
-function videoLoop(){
-const elapsed=(Date.now()-start)/1000;const pct=Math.min((elapsed/50)*100,100);progress.style.width=pct+'%';
-const t=elapsed%50;
-v1.classList.toggle('active', t>=2 && t<8);
-v2.classList.toggle('active', t>=10 && t<18);
-v3.classList.toggle('active', t>=20 && t<28);
-if(elapsed>=50) start=Date.now();
-requestAnimationFrame(videoLoop);
-}
-videoLoop();
-</script>
-</body>
-</html>
+<div class="top-logo"><img src="data:image/jpeg;base64,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
