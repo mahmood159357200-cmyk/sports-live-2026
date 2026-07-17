@@ -1,82 +1,24 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK Sport Live</title>
-    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { width: 100%; height: 100%; overflow: hidden; background-color: #000; font-family: Arial, sans-serif; }
-        .video-container { position: relative; width: 100%; height: 100%; }
-        
-        /* ضبط مشغل الفيديو ليملأ كامل أبعاد الشاشة بدقة */
-        .video-js { width: 100% !important; height: 100% !important; }
-        
-        /* إخفاء شريط التحكم بالوقت تماماً لجعل البث يبدو حقيقياً ومباشراً بنسبة 100% */
-        .vjs-control-bar, .vjs-big-play-button { display: none !important; opacity: 0 !important; }
-
-        /* شاشة ذكية شفافة لتفعيل الصوت بمجرد اللمس وتخطي حظر المتصفحات */
-        #interaction-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5); z-index: 10000;
-            display: flex; justify-content: center; align-items: center;
-            color: white; font-size: 18px; font-weight: bold; text-align: center;
-            cursor: pointer; padding: 20px;
-        }
-        .touch-hint {
-            background: rgba(74, 20, 140, 0.9); padding: 15px 30px; 
-            border-radius: 50px; border: 2px solid white;
-            box-shadow: 0 0 15px rgba(255,255,255,0.2);
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* شعار MK SPORT المصغر الثابت في أعلى جهة الشمال */
-        .watermark-logo {
-            position: absolute; top: 15px; left: 15px; z-index: 99999;
-            background-color: #4a148c; color: #ffffff; font-weight: bold;
-            font-size: 14px; padding: 6px 14px; border-radius: 30px;
-            box-shadow: 0px 3px 8px rgba(0,0,0,0.5); border: 2px solid #ffffff;
-            user-select: none; pointer-events: none;
-        }
-    </style>
+<html dir="rtl">
+<head><meta charset="UTF-8">
+<style>
+body{margin:0;width:100vw;height:100vh;background:radial-gradient(#6A0DAD,#4B0082);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.slide{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;font-size:90px;font-weight:900;color:#fff;text-align:center;text-shadow:0 0 20px gold;opacity:0;animation:show 24s infinite}
+.slide:nth-child(1){animation-delay:0s} .slide:nth-child(2){animation-delay:3s}
+.slide:nth-child(3){animation-delay:6s} .slide:nth-child(4){animation-delay:9s}
+.slide:nth-child(5){animation-delay:12s} .slide:nth-child(6){animation-delay:15s}
+.slide:nth-child(7){animation-delay:18s} .slide:nth-child(8){animation-delay:21s}
+@keyframes show{0%{opacity:0;transform:translate(-50%,-40%) scale(.7)}4%{opacity:1;transform:translate(-50%,-50%)}12%{opacity:1}16%{opacity:0}100%{opacity:0}}
+</style>
 </head>
 <body>
-
-    <div class="video-container">
-        <div id="interaction-overlay">
-            <div class="touch-hint">اضغط هنا لتشغيل البث والصوت المباشر 🔊</div>
-        </div>
-
-        <video id="mk-iptv-player" class="video-js vjs-default-skin" autoplay muted loop preload="auto">
-            <source src="http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/3019" type="application/x-mpegURL" />
-        </video>
-
-        <div class="watermark-logo">MK SPORT</div>
-    </div>
-
-    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
-    <script>
-        var player = videojs('mk-iptv-player');
-        
-        // تشغيل البث في الخلفية فوراً صامتاً لضمان عدم حظر المتصفح للموقع
-        player.ready(function() {
-            player.play();
-        });
-
-        // تشغيل الصوت وإخفاء واجهة التنبيه بمجرد نقر المستخدم في أي مكان بالشاشة
-        const overlay = document.getElementById('interaction-overlay');
-        overlay.addEventListener('click', () => {
-            player.muted(false); // إلغاء كتم الصوت
-            player.volume(1.0);  // رفع الصوت لأعلى درجة
-            player.play();
-            overlay.style.display = 'none'; // إخفاء إشعار اللمس تماماً
-        });
-    </script>
+<div class="slide">صفحة MK Sport</div>
+<div class="slide">جميع الدوريات العالمية والمحلية</div>
+<div class="slide">يعرض هنا بث مباشر</div>
+<div class="slide">علي صفحة MK Sport</div>
+<div class="slide">انتظرونا في مباراة فرنسا وانجلترا</div>
+<div class="slide">انتظرونا في مباراة الارجنتين واسبانيا</div>
+<div class="slide">بث المباراة قبل بدأ المباراة بنص ساعة</div>
+<div class="slide" style="color:gold;font-size:130px">MK Sport</div>
 </body>
 </html>
