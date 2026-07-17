@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MK Sport Live</title>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body, html { width: 100%; height: 100%; overflow: hidden; background-color: #000; font-family: Arial, sans-serif; }
         .video-container { position: relative; width: 100%; height: 100%; }
-        .plyr, .plyr__video-wrapper { width: 100% !important; height: 100% !important; }
         
-        .plyr__controls, .plyr__control--overlaid, .plyr__volume, .plyr--video iframe {
-            display: none !important; opacity: 0 !important; pointer-events: none !important;
-        }
+        /* ضبط مشغل الفيديو ليملأ كامل أبعاد الشاشة بدقة */
+        .video-js { width: 100% !important; height: 100% !important; }
+        
+        /* إخفاء شريط التحكم بالوقت تماماً لجعل البث يبدو حقيقياً ومباشراً بنسبة 100% */
+        .vjs-control-bar, .vjs-big-play-button { display: none !important; opacity: 0 !important; }
 
-        /* شاشة التفاعل لتفعيل الصوت */
+        /* شاشة ذكية شفافة لتفعيل الصوت بمجرد اللمس وتخطي حظر المتصفحات */
         #interaction-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.5); z-index: 10000;
@@ -35,7 +36,7 @@
             100% { transform: scale(1); }
         }
 
-        /* الشعار المصغر في أعلى الشمال */
+        /* شعار MK SPORT المصغر الثابت في أعلى جهة الشمال */
         .watermark-logo {
             position: absolute; top: 15px; left: 15px; z-index: 99999;
             background-color: #4a148c; color: #ffffff; font-weight: bold;
@@ -48,33 +49,33 @@
 <body>
 
     <div class="video-container">
-        <!-- شاشة اللمس الذكية لتفعيل الصوت -->
         <div id="interaction-overlay">
-            <div class="touch-hint">اضغط هنا لتشغيل الإعلان والحماس 🔊</div>
+            <div class="touch-hint">اضغط هنا لتشغيل البث والصوت المباشر 🔊</div>
         </div>
 
-        <!-- فيديو إعلان كرة القدم العالمي والمحلي المجمع -->
-        <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="XhU6v_f2Ies"></div>
+        <video id="mk-iptv-player" class="video-js vjs-default-skin" autoplay muted loop preload="auto">
+            <source src="http://ugeen.live:8080/Ugeen_VIPDyFKsG/9BPK3X/3019" type="application/x-mpegURL" />
+        </video>
 
-        <!-- شعار موقعك الثابت -->
         <div class="watermark-logo">MK SPORT</div>
     </div>
 
-    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
     <script>
-        const player = new Plyr('#player', {
-            autoplay: true,
-            muted: true, 
-            loop: { active: true },
-            controls: []
+        var player = videojs('mk-iptv-player');
+        
+        // تشغيل البث في الخلفية فوراً صامتاً لضمان عدم حظر المتصفح للموقع
+        player.ready(function() {
+            player.play();
         });
 
+        // تشغيل الصوت وإخفاء واجهة التنبيه بمجرد نقر المستخدم في أي مكان بالشاشة
         const overlay = document.getElementById('interaction-overlay');
         overlay.addEventListener('click', () => {
-            player.muted = false; 
-            player.setVolume(1);  
-            player.play();        
-            overlay.style.display = 'none'; 
+            player.muted(false); // إلغاء كتم الصوت
+            player.volume(1.0);  // رفع الصوت لأعلى درجة
+            player.play();
+            overlay.style.display = 'none'; // إخفاء إشعار اللمس تماماً
         });
     </script>
 </body>
