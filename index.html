@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MK Sport Live</title>
+    <!-- استدعاء مكتبة المشغل الاحترافي لإخفاء معالم اليوتيوب تماماً -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
         * {
             margin: 0;
@@ -17,36 +19,39 @@
             background-color: #000;
             font-family: Arial, sans-serif;
         }
-        /* حاوية الفيديو الأساسية */
-        .video-wrapper {
+        .video-container {
             position: relative;
             width: 100%;
             height: 100%;
-            overflow: hidden;
         }
-        /* تكبير إطار يوتيوب لإخفاء الأزرار والشعار خارج حدود الشاشة */
-        iframe {
-            position: absolute;
-            top: -5%;
-            left: -5%;
-            width: 110%;
-            height: 110%;
-            border: none;
-            pointer-events: none; /* يمنع المشاهد من النقر لإظهار أزرار التحكم أو إيقاف الفيديو */
+        /* ضبط أبعاد المشغل لملء الشاشة بالكامل */
+        .plyr, .plyr__video-wrapper {
+            width: 100% !important;
+            height: 100% !important;
         }
-        /* الشعار بعد تصغيره ونقله إلى أعلى يسار الشاشة */
+        /* إخفاء شريط الوقت وأزرار التحكم تماماً لجعلها تبدو كبث مباشر */
+        .plyr__controls, .plyr__control--overlaid, .plyr__volume {
+            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        /* منع أي نقرات على الفيديو لإخفاء أي عناصر لليوتيوب */
+        .plyr--video iframe {
+            pointer-events: none !important;
+        }
+        /* تصميم اللوجو المصغر الثابت في أعلى جهة الشمال (اليسار) */
         .watermark-logo {
             position: absolute;
-            top: 20px; /* المسافة من الأعلى */
-            left: 20px; /* تم نقله إلى اليسار */
-            z-index: 9999; /* لضمان ظهوره فوق كل شيء */
-            background-color: #4a148c; /* اللون البنفسجي لشعارك */
+            top: 15px; 
+            left: 15px; 
+            z-index: 99999; /* لضمان الظهور فوق المشغل الجديد */
+            background-color: #4a148c; 
             color: #ffffff;
             font-weight: bold;
-            font-size: 16px; /* تم تصغير حجم الخط */
-            padding: 8px 18px; /* تم تصغير الأبعاد */
-            border-radius: 50px; 
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            font-size: 14px; /* حجم خط صغير ومناسب */
+            padding: 6px 14px; /* أبعاد أصغر ومتناسقة */
+            border-radius: 30px; 
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.5);
             user-select: none;
             pointer-events: none; 
             letter-spacing: 0.5px;
@@ -56,17 +61,33 @@
 </head>
 <body>
 
-    <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/yfR_HprJx7s?autoplay=1&loop=1&playlist=yfR_HprJx7s&mute=1&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
+    <div class="video-container">
+        <!-- حاوية المشغل الذكي المرتبطة باليوتيوب -->
+        <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="yfR_HprJx7s"></div>
 
+        <!-- شعار MK Sport المصغر في أعلى الشمال -->
         <div class="watermark-logo">
             MK SPORT
         </div>
     </div>
 
+    <!-- ملف تشغيل المكتبة الذكية -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script>
+        // إعدادات المشغل: تشغيل تلقائي، كتم الصوت لضمان العمل، وتكرار مستمر
+        const player = new Plyr('#player', {
+            autoplay: true,
+            muted: true,
+            loop: { active: true },
+            controls: [], /* مصفوفة فارغة تعني حذف كل أزرار التحكم تماماً */
+            fullscreen: { enabled: false },
+            keyboard: { global: false, focused: false }
+        });
+
+        // تأكيد التشغيل التلقائي فور جاهزية المشغل
+        player.on('ready', () => {
+            player.play();
+        });
+    </script>
 </body>
 </html>
