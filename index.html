@@ -21,21 +21,38 @@
             height: 100vh;
         }
 
-        /* شريط اللوجو البنفسجي */
+        /* شريط اللوجو العلوي الكبير */
         .logo-bar {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #4B0082; /* درجة بنفسجي داكنة ومميزة (Indigo) */
+            background-color: #4B0082;
             color: #fff;
             text-align: center;
             padding: 15px 0;
             font-size: 26px;
             font-weight: bold;
-            z-index: 9999; /* لضمان بقائه فوق الفيديو والإعلانات دائماً */
+            z-index: 9999;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             letter-spacing: 1px;
+        }
+
+        /* اللوجو الصغير البديل لتغطية شعار بين سبورت */
+        .beIn-cover {
+            position: absolute;
+            /* الإحداثيات لتأتي فوق اللوجو الأصلي (يمكنك تعديلها إذا تحرك البث) */
+            top: 65px; /* أسفل الشريط البنفسجي مباشرة */
+            right: 15px; /* مسافة من اليمين */
+            background-color: #4B0082; /* بنفسجي داكن ليطمس الشعار خلفه */
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 11px; /* حجم صغير يناسب حجم لوجو القناة */
+            font-weight: bold;
+            border-radius: 4px;
+            z-index: 9999; /* ليكون فوق الفيديو دائماً */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            pointer-events: none; /* لتسمح بالضغط من خلالها على الفيديو إن لزم الأمر */
         }
 
         /* كود الـ iframe الشاشة الكاملة */
@@ -52,12 +69,17 @@
 <body>
 
     <div class="container">
-        <!-- شريط اللوجو العلوي -->
+        <!-- شريط اللوجو العلوي الأساسي -->
         <div class="logo-bar">
             MK Sport
         </div>
 
-        <!-- مشغل الفيديو المحمي ضد الإعلانات والنوافذ المنبثقة -->
+        <!-- اللوجو الصغير الذي يغطي شعار القناة -->
+        <div class="beIn-cover">
+            MK Sport
+        </div>
+
+        <!-- مشغل الفيديو المحمي -->
         <iframe class="video-frame" 
                 src="https://fy.onlineworldcupfifa.com/albaplayer/sports-1/" 
                 allowfullscreen="true" 
