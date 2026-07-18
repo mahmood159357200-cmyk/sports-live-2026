@@ -19,6 +19,9 @@
             position: relative;
             width: 100vw;
             height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* شريط اللوجو العلوي الكبير */
@@ -38,21 +41,22 @@
             letter-spacing: 1px;
         }
 
-        /* اللوجو الصغير البديل لتغطية شعار بين سبورت */
+        /* اللوجو الصغير المضبوط فوق شعار القناة بالضبط */
         .beIn-cover {
             position: absolute;
-            /* الإحداثيات لتأتي فوق اللوجو الأصلي (يمكنك تعديلها إذا تحرك البث) */
-            top: 65px; /* أسفل الشريط البنفسجي مباشرة */
-            right: 15px; /* مسافة من اليمين */
-            background-color: #4B0082; /* بنفسجي داكن ليطمس الشعار خلفه */
+            /* الإحداثيات الجديدة لضبط المكان وسط الشاشة المظلمة */
+            top: 48.5%; 
+            right: 4%; 
+            background-color: #201e2b; /* نفس درجة لون الشريط الأسود لشعار بين سبورت لتغطيتها بالكامل */
             color: #fff;
-            padding: 4px 8px;
-            font-size: 11px; /* حجم صغير يناسب حجم لوجو القناة */
+            padding: 2px 4px;
+            font-size: 10px; /* حجم صغير جداً يطابق حجم اللوجو الأصلي */
             font-weight: bold;
-            border-radius: 4px;
-            z-index: 9999; /* ليكون فوق الفيديو دائماً */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            pointer-events: none; /* لتسمح بالضغط من خلالها على الفيديو إن لزم الأمر */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 1px;
+            z-index: 9999; 
+            pointer-events: none; 
+            box-shadow: inset 0 0 3px rgba(0,0,0,0.8);
         }
 
         /* كود الـ iframe الشاشة الكاملة */
@@ -74,7 +78,7 @@
             MK Sport
         </div>
 
-        <!-- اللوجو الصغير الذي يغطي شعار القناة -->
+        <!-- اللوجو الصغير المضبوط مكانه برمجياً -->
         <div class="beIn-cover">
             MK Sport
         </div>
