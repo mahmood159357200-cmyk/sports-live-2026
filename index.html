@@ -1,95 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK Sport Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>البث المباشر</title>
     <style>
+        /* تصفير الهوامش وجعل الخلفية سوداء بالكامل */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             background-color: #000;
-            font-family: Arial, sans-serif;
+            overflow: hidden; /* إخفاء أشرطة التمرير */
+            position: relative;
         }
 
-        .container {
-            position: relative;
+        /* جعل المشغل يملأ كامل طول وعرض الشاشة */
+        iframe {
             width: 100vw;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* شريط اللوجو العلوي الكبير - تم تنزيله وتوسيع مساحته */
-        .logo-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #4B0082;
-            color: #fff;
-            text-align: center;
-            padding: 22px 0; /* تم زيادة الطول لينزل لأسفل الشاشة قليلاً */
-            font-size: 26px;
-            font-weight: bold;
-            z-index: 9999;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            letter-spacing: 1px;
-        }
-
-        /* اللوجو الصغير البنفسجي - تم تنزيله وتوسيع عرضه بالملّي */
-        .beIn-cover {
-            position: absolute;
-            top: 39.3vh; /* نزل حاجة بسيطة ليقفل تماماً */
-            right: 4.5vw; 
-            background-color: #4B0082; 
-            color: #ffffff;
-            padding: 5px 14px; /* زيادة العرض يميناً ويساراً ليداري الشعار بالكامل */
-            font-size: 10px; 
-            font-weight: bold;
-            font-family: sans-serif;
-            border-radius: 2px;
-            z-index: 9999; 
-            pointer-events: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        /* كود الـ iframe الشاشة الكاملة */
-        .video-frame {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             border: none;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* حاوية اللوجو بعرض الشاشة بالكامل */
+        .logo-full-width {
+            position: absolute;
+            top: 20px;       /* المسافة من أعلى الشاشة */
+            left: 0;
+            width: 100vw;    /* جعل الحاوية بعرض الشاشة بالكامل */
+            z-index: 10;     /* فوق الفيديو */
+            display: flex;
+            justify-content: center; /* توسيط اللوجو أفقياً (تغييرها لـ flex-end تجعله يميناً) */
+            pointer-events: none;    /* عدم إعاقة النقر على الفيديو */
+        }
+
+        /* التحكم في حجم اللوجو الممتد */
+        .logo-full-width img {
+            width: 80%;          /* اللوجو سيأخذ 80% من عرض الشاشة، يمكنك جعلها 100% إن أردت */
+            max-width: 600px;    /* حد أقصى للعرض على الشاشات الكبيرة حتى لا يتشوه */
+            height: auto;
+            display: block;
+            opacity: 0.85;       /* شفافية خفيفة (85%) لكي لا يحجب تفاصيل الفيديو تماماً */
+            filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.8));
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- شريط اللوجو العلوي الأساسي -->
-        <div class="logo-bar">
-            MK Sport
-        </div>
-
-        <!-- اللوجو الصغير البنفسجي العريض والمضبوط تماماً -->
-        <div class="beIn-cover">
-            MK Sport
-        </div>
-
-        <!-- مشغل الفيديو المحمي -->
-        <iframe class="video-frame" 
-                src="https://fy.onlineworldcupfifa.com/albaplayer/sports-1/" 
-                allowfullscreen="true" 
-                scrolling="no"
-                sandbox="allow-scripts allow-same-origin allow-presentation">
-        </iframe>
+    <!-- حاوية الشعار الممتد بعرض الشاشة -->
+    <div class="logo-full-width">
+        <!-- استبدل logo.png برابط صورة شعار MK SPORT الخاص بك -->
+        <img src="logo.png" alt="MK SPORT">
     </div>
+
+    <iframe 
+        src="https://player.syria-player.live/albaplayer/beinmax1/?serv=0" 
+        allowfullscreen="true" 
+        frameborder="0" 
+        scrolling="no">
+    </iframe>
 
 </body>
 </html>
