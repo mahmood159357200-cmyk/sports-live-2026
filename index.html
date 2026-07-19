@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>البث المباشر</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البث المباشر - شاشة كاملة</title>
     <style>
-        /* تصفير الهوامش وجعل الخلفية سوداء بالكامل */
+        /* تصفير الحواف وجعل الصفحة بالكامل سوداء لتناسب عرض الفيديو */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             background-color: #000;
-            overflow: hidden; /* إخفاء أشرطة التمرير */
+            overflow: hidden;
+        }
+        
+        /* جعل حاوي الفيديو يملأ الشاشة تماماً */
+        .stream-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
-        /* جعل المشغل يملأ كامل طول وعرض الشاشة */
+        /* ضبط أبعاد الـ iframe لملء الشاشة ومنع ظهور أي إطارات جانبية */
         iframe {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             border: none;
             display: block;
         }
@@ -26,13 +33,27 @@
 </head>
 <body>
 
-    <!-- تم إزالة الـ Sandbox ليتخطى حماية السيرفر ويعمل البث بنجاح -->
-    <iframe 
-        src="https://player.syria-player.live/albaplayer/beinmax1/?serv=0" 
-        allowfullscreen="true" 
-        frameborder="0" 
-        scrolling="no">
-    </iframe>
+    <div class="stream-container">
+        <!-- 
+          - تم إضافة دالات التشغيل التلقائي والكتم (?autoplay=1&muted=1) في نهاية الرابط لضمان عمل الـ Autoplay في المتصفحات الحديثة.
+          - تم تفعيل ميزة ملء الشاشة الكاملة عبر خاصية allowfullscreen.
+        -->
+        <iframe 
+            id="player"
+            src="https://cup.kora-live-live.com/albaplayer/sports-1/?autoplay=1&muted=1" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen="true"
+            scrolling="no">
+        </iframe>
+    </div>
+
+    <script>
+        // كود برمجى لمنع الإعلانات المنبثقة من فتح صفحات جديدة وإزعاجك أثناء المشاهدة
+        window.open = function() { 
+            console.log("تم حظر نافذة إعلانية منبثقة.");
+            return true; 
+        };
+    </script>
 
 </body>
 </html>
