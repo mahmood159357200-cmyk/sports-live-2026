@@ -2,39 +2,37 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بث مباشر بدون إعلانات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>البث المباشر</title>
     <style>
-        /* كود لجعل الفيديو يملأ الشاشة بالكامل بدون حواف */
+        /* تصفير الهوامش وجعل الخلفية سوداء بالكامل */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             background-color: #000;
-            overflow: hidden;
+            overflow: hidden; /* إخفاء أشرطة التمرير */
         }
+
+        /* جعل المشغل يملأ كامل طول وعرض الشاشة */
         iframe {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- 
-      - تم إضافة خواص لمنع النوافذ المنبثقة والإعلانات (sandbox)
-      - تم إضافة (autoplay=1) لمحاولة التشغيل التلقائي
-      - تم تفعيل ميزة ملء الشاشة (allowfullscreen)
-    -->
+    <!-- تم إزالة الـ Sandbox ليتخطى حماية السيرفر ويعمل البث بنجاح -->
     <iframe 
-        src="https://fy.onlineworldcupfifa.com/albaplayer/sports-1/?autoplay=1&muted=1" 
-        allow="autoplay; fullscreen; picture-in-picture" 
+        src="https://player.syria-player.live/albaplayer/beinmax1/?serv=0" 
         allowfullscreen="true" 
-        scrolling="no"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-presentation">
-    </iframe >
+        frameborder="0" 
+        scrolling="no">
+    </iframe>
 
 </body>
 </html>
