@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مشغل مباشر بدون إعلانات</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشغل الفيديو</title>
+    <style>
+        /* إزالة الهوامش وجعل الصفحة تملأ الشاشة بالكامل */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        /* جعل الـ iframe يغطي الشاشة تماماً */
+        .video-container {
+            width: 100%;
+            height: 100%;
+        }
 
-<style>
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #000;
-}
-
-iframe {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    border: 0;
-}
-</style>
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
-
 <body>
 
-<iframe
-    src="https://912acsss8af382.fabortvcdn.com/playerv5.php?match=4741713&key=9f39972b67d6ce22189507d008acwc26&autoplay=1&muted=1"
-    allow="autoplay; fullscreen; encrypted-media"
-    allowfullscreen
-    scrolling="no"
-    sandbox="allow-scripts allow-same-origin allow-presentation">
-</iframe>
+    <div class="video-container">
+        <iframe 
+            src="https://912acsss8af382.fabortvcdn.com/playerv5.php?match=4750899&key=9f39972b67d6ce22189507d008acwc26" 
+            frameborder="0" 
+            allowfullscreen 
+            scrolling="no"
+            sandbox="allow-scripts allow-same-origin allow-presentation">
+        </iframe>
+    </div>
 
 </body>
 </html>
