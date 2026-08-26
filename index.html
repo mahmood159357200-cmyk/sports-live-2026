@@ -1,53 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشغل الفيديو</title>
+    <style>
+        /* إزالة الهوامش وجعل الصفحة تملأ الشاشة بالكامل */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #000;
-    }
-
-    .player-wrapper {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .player-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-  </style>
+        /* جعل الإطار يغطي الشاشة بالكامل */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="player-wrapper">
-    <iframe 
-      src="https://912acsss8af382.fabortvcdn.com/playerv5.php?match=4809611&key=9f39972b67d6ce22189507d008acwc26" 
-      allowfullscreen 
-      scrolling="no"
-      sandbox="allow-scripts allow-same-origin allow-forms">
+    <iframe src="https://912acsss8af382.yasirtv.com/playerv5.php?match=4804588&key=9f39972b67d6ce22189507d008acwc26" 
+            allowfullscreen 
+            scrolling="no" 
+            frameborder="0">
     </iframe>
-  </div>
-
-  <script>
-    // منع فتح النوافذ المنبثقة التلقائية (Popups) من السيرفر الخارجي
-    window.open = function() {
-      return null;
-    };
-  </script>
 
 </body>
 </html>
