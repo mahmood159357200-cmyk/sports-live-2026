@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشاهدة المباراة</title>
+    <title>مشغل الفيديو - ملء الشاشة</title>
     <style>
-        /* إزالة الهوامش وجعل الصفحة تملأ الشاشة بالكامل */
+        /* إزالة الهوامش والتمرير لملء الشاشة تماماً */
         html, body {
             margin: 0;
             padding: 0;
@@ -15,31 +15,30 @@
             background-color: #000;
         }
 
-        /* جعل اليفريم يمتد على كامل مساحة الشاشة */
+        /* جعل الإطار يغطي الشاشة بالكامل */
         .video-container {
-            width: 100%;
-            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: none;
         }
 
         iframe {
             width: 100%;
             height: 100%;
             border: none;
-            display: block;
         }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <iframe src="https://912acsss8af382.yasirtv.com/playervv5.php?match=4750878&key=9f39972b67d6ce22189507d008acwc26" 
-                frameborder="0" 
+        <iframe src="https://912acsss8af382.yasirtv.com/playervv5.php?match=4750872&key=9f39972b67d6ce22189507d008acwc26" 
                 allowfullscreen 
                 scrolling="no" 
-                allow="autoplay; encrypted-media">
+                frameborder="0">
         </iframe>
     </div>
 
