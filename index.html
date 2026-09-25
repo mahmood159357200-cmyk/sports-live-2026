@@ -3,40 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشاهدة المباراة</title>
+    <title>مشاهدة المباشر</title>
     <style>
-        /* إزالة الهوامش لجعل الفيديو يملأ الشاشة تماماً */
+        /* إزالة الهوامش والمسافات الافتراضية للصفحة */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            background-color: #000;
+            overflow: hidden; /* لمنع ظهور شريط التمرير */
+            background-color: #000; /* خلفية سوداء أثناء التحميل */
         }
-
-        /* جعل الإطار يغطي الشاشة بالكامل */
-        .video-container {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-        }
-
+        
+        /* جعل الإطار يملأ الشاشة تماماً */
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <iframe src="https://912acsss8af382.yasirtv.com/playervv5.php?match=4847463&key=9f39972b67d6ce22189507d008acwc26" 
-                allowfullscreen 
-                scrolling="no">
-        </iframe>
-    </div>
+    <iframe src="https://912acsss8af382.yasirtv.com/playervv5.php?match=4716604&key=9f39972b67d6ce22189507d008acwc26" 
+            frameborder="0" 
+            allowfullscreen 
+            scrolling="no">
+    ></iframe>
 
 </body>
 </html>
